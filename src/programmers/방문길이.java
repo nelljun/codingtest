@@ -1,6 +1,6 @@
 package src.programmers;
 
-public class ¹æ¹®±æÀÌ {
+public class ë°©ë¬¸ê¸¸ì´ {
 
 	public static void main(String[] args) {
 		String dirs = "LRLRL";
@@ -11,7 +11,7 @@ public class ¹æ¹®±æÀÌ {
 
 		char[] charArr = dirs.toCharArray();
 
-		//(yÁÂÇ¥, xÁÂÇ¥, ¹æÇâ)
+		//(yì¢Œí‘œ, xì¢Œí‘œ, ë°©í–¥)
 		boolean[][][] isVisited = new boolean[11][11][4];
 
 		int x = 5, y = 5;

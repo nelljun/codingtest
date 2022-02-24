@@ -29,35 +29,35 @@ public class Main15649 {
 		
 	}//main() end
 	
-	//Á¶°Ç¿¡ ¸Â´Â ¹è¿­ ¸¸µé°í print
+	//ì¡°ê±´ì— ë§ëŠ” ë°°ì—´ ë§Œë“¤ê³  print
 	public static void combination(int index) {
 		if(index==M) {
 			printArr(arr);
 			return;
 		} else {
 			for(int i=1; i<=N; i++) {
-				//ÇØ´ç ¼ıÀÚ°¡ »ç¿ë¿©ºÎ È®ÀÎ
+				//í•´ë‹¹ ìˆ«ìê°€ ì‚¬ìš©ì—¬ë¶€ í™•ì¸
 				if(!isUsed[i-1]) {
-					//»ç¿ë¾ÈÇßÀ¸¸é, arr[index]¿¡ ÇØ´ç °ª ´ëÀÔÇÏ°í »ç¿ë ¿©ºÎ Ã¼Å©
+					//ì‚¬ìš©ì•ˆí–ˆìœ¼ë©´, arr[index]ì— í•´ë‹¹ ê°’ ëŒ€ì…í•˜ê³  ì‚¬ìš© ì—¬ë¶€ ì²´í¬
 					arr[index] = i;
 					isUsed[i-1] = true;
-					//´ÙÀ½ ÀÎµ¦½º¿¡ ´ëÇØ¼­ °°Àº ÀÛ¾÷
+					//ë‹¤ìŒ ì¸ë±ìŠ¤ì— ëŒ€í•´ì„œ ê°™ì€ ì‘ì—…
 					combination(index+1);
-					//arrÀÇ ÇöÀçindexÀÇ °ªÀÌ iÀÏ¶§ ¸ğµç °æ¿ì ³¡³µÀ¸´Ï
-					//arrÀÇ ÇöÀçindexÀÇ °ª ¹İ³³
+					//arrì˜ í˜„ì¬indexì˜ ê°’ì´ iì¼ë•Œ ëª¨ë“  ê²½ìš° ëë‚¬ìœ¼ë‹ˆ
+					//arrì˜ í˜„ì¬indexì˜ ê°’ ë°˜ë‚©
 					isUsed[i-1] = false;
 				}//if else
 			}//for end
 		}//if else end
 	}//combination() end
 	
-	//¹è¿­ print method
+	//ë°°ì—´ print method
 	public static void printArr(int[] arr) {
 		for(int i=0; i<arr.length; i++) {
 			sb.append(arr[i]+" ");
 		}//for end
 		System.out.println(sb);
-		//ÇØ´ç ¹è¿­ printÈÄ sb ÃÊ±âÈ­
+		//í•´ë‹¹ ë°°ì—´ printí›„ sb ì´ˆê¸°í™”
 		sb.setLength(0);
 	}//printArr() end
 }

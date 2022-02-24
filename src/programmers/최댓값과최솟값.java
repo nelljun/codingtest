@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class �ִ񰪰��ּڰ� {
+public class 최댓값과최솟값 {
 
 	public static void main(String[] args) {
 		String s = "1 2 3 4";

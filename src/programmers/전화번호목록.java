@@ -3,7 +3,7 @@ package src.programmers;
 import java.util.Arrays;
 import java.util.HashMap;
 
-public class ÀüÈ­¹øÈ£¸ñ·Ï {
+public class ì „í™”ë²ˆí˜¸ëª©ë¡ {
 	
 	public boolean solutionHash(String[] phone_book) {
         boolean answer = true;
@@ -15,7 +15,7 @@ public class ÀüÈ­¹øÈ£¸ñ·Ï {
 	    }//for end
 	   
 	    for(int i=0; i<phone_book.length; i++) {
-	    	//ÀÚ½ÅÀ» ¾Õ¿¡¼­ºÎÅÍ ÇÏ³ª¾¿ Àß¶ó°¡¸é¼­ ÇØ´ç stringÀÌ mapÀÇ key¿¡ Á¸ÀçÇÏ´ÂÁö È®ÀÎ
+	    	//ìì‹ ì„ ì•ì—ì„œë¶€í„° í•˜ë‚˜ì”© ì˜ë¼ê°€ë©´ì„œ í•´ë‹¹ stringì´ mapì˜ keyì— ì¡´ì¬í•˜ëŠ”ì§€ í™•ì¸
 	    	for(int j=0; j<phone_book[i].length(); j++) {
 	    		if(hashMap.containsKey(phone_book[i].substring(0, j))) {
 	    			answer = false;
@@ -36,9 +36,9 @@ public class ÀüÈ­¹øÈ£¸ñ·Ï {
 			if(phone_book[i+1].startsWith(phone_book[i])) answer = false;
 		}//for end
 		
-		//string Á¤·ÄÇÏ¸é ½ÃÀÛ ¼ıÀÚ¸¦ ±âÁØÀ¸·Î ÇÏ±â ¶§¹®¿¡
-		//¹Ù·Î µÚ ¿ä¼Ò¿Í¸¸ ºñ±³ÇØº¸¸é µÈ´Ù. 
-		//11 21 111 ÀÌ·±½ÄÀÌ ¾Æ´Ñ 11 111 21·Î Á¤·ÄµÇ±â ¶§¹®ÀÌ´Ù
+		//string ì •ë ¬í•˜ë©´ ì‹œì‘ ìˆ«ìë¥¼ ê¸°ì¤€ìœ¼ë¡œ í•˜ê¸° ë•Œë¬¸ì—
+		//ë°”ë¡œ ë’¤ ìš”ì†Œì™€ë§Œ ë¹„êµí•´ë³´ë©´ ëœë‹¤. 
+		//11 21 111 ì´ëŸ°ì‹ì´ ì•„ë‹Œ 11 111 21ë¡œ ì •ë ¬ë˜ê¸° ë•Œë¬¸ì´ë‹¤
 		return answer;
 	}
 }

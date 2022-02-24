@@ -1,6 +1,6 @@
 package src.programmers;
 
-public class Å¸°Ù³Ñ¹ö {
+public class íƒ€ê²Ÿë„˜ë²„ {
 
 	public static void main(String[] args) {
 		int[] numbers = {4,1,2,1};
@@ -19,7 +19,7 @@ public class Å¸°Ù³Ñ¹ö {
 	
 	static int count = 0;
 	public static void dfs(int index, int sum, int[] numbers, int target) {
-		//Áß´ÜÁ¶°Ç
+		//ì¤‘ë‹¨ì¡°ê±´
 		if(index==numbers.length) {
 			if(sum==target) {
 				count++;

@@ -11,12 +11,12 @@ public class HIndex {
 	
 	public static int solution(int[] citations) {
 		int length = citations.length;
-		//H-Index°¡ µÉ ¼ö ÀÖ´Â ÃÖ´ë°ª
-		//³í¹® ¼ö(citations.length)¿Í ÃÖ´ë ³í¹® ÀÎ¿ë ¼öÀÇ minº¸´Ù H-Index°ªÀÌ Ä¿Áú ¼ö ¾ø´Ù.
+		//H-Indexê°€ ë  ìˆ˜ ìžˆëŠ” ìµœëŒ€ê°’
+		//ë…¼ë¬¸ ìˆ˜(citations.length)ì™€ ìµœëŒ€ ë…¼ë¬¸ ì¸ìš© ìˆ˜ì˜ minë³´ë‹¤ H-Indexê°’ì´ ì»¤ì§ˆ ìˆ˜ ì—†ë‹¤.
 		Arrays.sort(citations);
 		int maxH = Math.min(length, citations[length-1]);
 		
-		//h¿Í ¿ä¼Ò °ª ºñ±³
+		//hì™€ ìš”ì†Œ ê°’ ë¹„êµ
 		int i = 0;
 		int h = 0;
 		for(h=maxH; h>=0; h--) {
@@ -25,7 +25,7 @@ public class HIndex {
 				if(h>citations[i]) break;
 			}//for end
 			
-			//(length-1)-i : h¹ø ÀÌ»ó ÀÎ¿ëµÈ ³í¹® ¼ö
+			//(length-1)-i : hë²ˆ ì´ìƒ ì¸ìš©ëœ ë…¼ë¬¸ ìˆ˜
 			if(length-1-i>=h) break;
 		}//for end
 		

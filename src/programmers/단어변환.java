@@ -1,6 +1,6 @@
 package src.programmers;
 
-public class �ܾȯ {
+public class 단어변환 {
 
 	static boolean[] visited;
 	static int answer;

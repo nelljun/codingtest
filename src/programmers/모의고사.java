@@ -3,7 +3,7 @@ package src.programmers;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ¸ğÀÇ°í»ç {
+public class ëª¨ì˜ê³ ì‚¬ {
 
 	public static void main(String[] args) {
 		int[] answers1 = {1,2,3,4,5};
@@ -32,7 +32,7 @@ public class ¸ğÀÇ°í»ç {
 			results[i] = count;
 		}//for end
 		
-		//ÃÖ´ë Á¤´ä ¼ö
+		//ìµœëŒ€ ì •ë‹µ ìˆ˜
 		int maxResult = 0;
 		for(int i=0; i<results.length; i++) {
 			if(results[i]>maxResult) maxResult = results[i];
@@ -40,7 +40,7 @@ public class ¸ğÀÇ°í»ç {
 		
 		List<Integer> list = new ArrayList<>();
 		
-		//ÃÖ´ë Á¤´ä ¼ö¿¡ ÇØ´çÇÏ´Â »ç¶÷ ¹è¿­
+		//ìµœëŒ€ ì •ë‹µ ìˆ˜ì— í•´ë‹¹í•˜ëŠ” ì‚¬ëŒ ë°°ì—´
 		for(int i=0; i<studentArr.length; i++) {
 			if(results[i]==maxResult) {
 				list.add(i+1);

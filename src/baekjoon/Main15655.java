@@ -42,7 +42,7 @@ public class Main15655 {
 		bw.flush();
 	}//main() end
 	
-	//Á¶°Ç¿¡ ¸Â´Â ¹è¿­ ¸¸µé°í print
+	//ì¡°ê±´ì— ë§ëŠ” ë°°ì—´ ë§Œë“¤ê³  print
 	public static void combination(int index) throws IOException {
 		if(index==M) {
 			printArr(arr);
@@ -56,14 +56,14 @@ public class Main15655 {
 		}//if~else end
 	}//combination() end
 	
-	//¹è¿­ print method
+	//ë°°ì—´ print method
 	public static void printArr(int[] arr) throws IOException {
 		for(int i=0; i<arr.length; i++) {
 			sb.append(arr[i]+" ");
 		}//for end
 		bw.write(sb.toString());
 		bw.newLine();
-		//ÇØ´ç ¹è¿­ printÈÄ sb ÃÊ±âÈ­
+		//í•´ë‹¹ ë°°ì—´ printí›„ sb ì´ˆê¸°í™”
 		sb.setLength(0);
 	}//printArr() end
 }

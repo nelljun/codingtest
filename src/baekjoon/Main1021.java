@@ -36,7 +36,7 @@ public class Main1021 {
 			currentIdx = deque.indexOf(arr[i])+1;
 			currentDequeSize = deque.size();
 			if(currentIdx-1<=currentDequeSize-currentIdx+1) {
-				//¿ŞÂÊ ¹æÇâÀ¸·Î ÀÌµ¿ (2¹ø ¿¬»ê) - ¸Ç ¾Õ ¿ä¼Ò¸¦ ¸Ç µÚ·Î ÀÌµ¿
+				//ì™¼ìª½ ë°©í–¥ìœ¼ë¡œ ì´ë™ (2ë²ˆ ì—°ì‚°) - ë§¨ ì• ìš”ì†Œë¥¼ ë§¨ ë’¤ë¡œ ì´ë™
 				while(currentIdx>1) {
 					target = deque.removeFirst();
 					deque.addLast(target);
@@ -45,7 +45,7 @@ public class Main1021 {
 				}//while end
 				deque.removeFirst();
 			} else {
-				//¿À¸¥ÂÊ ¹æÇâÀ¸·Î ÀÌµ¿ (3¹ø ¿¬»ê) - ¸Ç µŞ ¿ä¼Ò¸¦ ¸Ç ¾ÕÀ¸·Î ÀÌµ¿
+				//ì˜¤ë¥¸ìª½ ë°©í–¥ìœ¼ë¡œ ì´ë™ (3ë²ˆ ì—°ì‚°) - ë§¨ ë’· ìš”ì†Œë¥¼ ë§¨ ì•ìœ¼ë¡œ ì´ë™
 				while(currentIdx!=1) {
 					target = deque.removeLast();
 					deque.addFirst(target);

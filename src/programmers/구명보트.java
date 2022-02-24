@@ -2,7 +2,7 @@ package src.programmers;
 
 import java.util.Arrays;
 
-public class ±¸¸íº¸Æ® {
+public class êµ¬ëª…ë³´íŠ¸ {
 	
 	public static void main(String[] args) {
 		int[] people = {40,40,40};
@@ -14,12 +14,12 @@ public class ±¸¸íº¸Æ® {
 	public static void solution(int[] people, int limit) {
 		
 		Arrays.sort(people);
-		//Â¦ÀÇ ¼ö
+		//ì§ì˜ ìˆ˜
 		int count = 0;
-		//ÃÖ´ëÇÑ ¹«°Ô Â÷ÀÌ°¡ ¸¹ÀÌ ³ª´Â »ç¶÷³¢¸® Â¦ÇØ¾ß ÃÖ¼Ò°ª
+		//ìµœëŒ€í•œ ë¬´ê²Œ ì°¨ì´ê°€ ë§ì´ ë‚˜ëŠ” ì‚¬ëŒë¼ë¦¬ ì§í•´ì•¼ ìµœì†Œê°’
 		int index = people.length;
-		//Â¦ Áö¾îÁø (¹«°Å¿î)»ç¶÷ÀÇ index
-		//´ÙÀ½ cycle ¶§ index-1ºÎÅÍ Å½»ö
+		//ì§ ì§€ì–´ì§„ (ë¬´ê±°ìš´)ì‚¬ëŒì˜ index
+		//ë‹¤ìŒ cycle ë•Œ index-1ë¶€í„° íƒìƒ‰
 		
 		for(int n=0; n<index; n++) {
 			for(int i=index-1; i>n; i--) {
@@ -29,7 +29,7 @@ public class ±¸¸íº¸Æ® {
 					break;
 				}
 			}//for end
-			//°¡Àå °¡º­¿î »ç¶÷°ú Â¦¾ø´Â °æ¿ì break;
+			//ê°€ì¥ ê°€ë²¼ìš´ ì‚¬ëŒê³¼ ì§ì—†ëŠ” ê²½ìš° break;
 			if(index==people.length) break;
 		}//for end
 		

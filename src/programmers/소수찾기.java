@@ -3,9 +3,9 @@ package src.programmers;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ¼Ò¼öÃ£±â {
+public class ì†Œìˆ˜ì°¾ê¸° {
 
-	//¸¸µç ¼ö ´ãÀ» Set (Áßº¹µÈ °ª ½Å°æx)
+	//ë§Œë“  ìˆ˜ ë‹´ì„ Set (ì¤‘ë³µëœ ê°’ ì‹ ê²½x)
 	static Set<Integer> numSet = new HashSet<>();
 	
 	public static void main(String[] args) {

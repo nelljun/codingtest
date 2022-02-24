@@ -1,7 +1,7 @@
 package src.programmers;
 
 
-public class ´ÙÀ½Å«¼ıÀÚ {
+public class ë‹¤ìŒí°ìˆ«ì {
 
 	public static void main(String[] args) {
 		int n = 15;
@@ -10,7 +10,7 @@ public class ´ÙÀ½Å«¼ıÀÚ {
 	
 	public static void solution(int n) {
 		
-		//countOne()¿¡ ÇØ´çÇÏ´Â Integer.bitCount(int n)ÀÌ Á¸ÀçÇÑ´Ù.
+		//countOne()ì— í•´ë‹¹í•˜ëŠ” Integer.bitCount(int n)ì´ ì¡´ì¬í•œë‹¤.
 		
 		int theNumOfOne = countOne(n);
 		

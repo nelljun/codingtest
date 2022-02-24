@@ -1,6 +1,6 @@
 package src.programmers;
 
-public class °¡ÀåÅ«Á¤»ç°¢ÇüÃ£±â {
+public class ê°€ì¥í°ì •ì‚¬ê°í˜•ì°¾ê¸° {
 
 	public static void main(String[] args) {
 		int[][] board = {{0,1,1,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};

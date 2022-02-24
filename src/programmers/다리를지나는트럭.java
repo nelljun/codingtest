@@ -3,7 +3,7 @@ package src.programmers;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class ´Ù¸®¸¦Áö³ª´ÂÆ®·° {
+public class ë‹¤ë¦¬ë¥¼ì§€ë‚˜ëŠ”íŠ¸ëŸ­ {
 	
 	int time = 0;
 	int totalTruckWeightOnBridge = 0;

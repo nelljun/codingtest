@@ -3,7 +3,7 @@ package src.programmers;
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class °¡ÀåÅ«¼ö {
+public class ê°€ì¥í°ìˆ˜ {
 
 	public static void main(String[] args) {
 		int[] numbers = {3502,4,3,30,300,301,352};
@@ -24,12 +24,12 @@ public class °¡ÀåÅ«¼ö {
 			public int compare(String str1, String str2) {
 				String temp1 = str1+str2;
 				String temp2 = str2+str1;
-				return temp2.compareTo(temp1); //³»¸²Â÷¼ø
+				return temp2.compareTo(temp1); //ë‚´ë¦¼ì°¨ìˆœ
 			}
 		});
 		
 		if(strArr[0].equals("0")) {
-			//¸ğµç ¼ıÀÚ°¡ 0ÀÎ °æ¿ì
+			//ëª¨ë“  ìˆ«ìê°€ 0ì¸ ê²½ìš°
 			sb.append("0");
 		} else {
 			for(String string : strArr) {

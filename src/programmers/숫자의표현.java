@@ -1,14 +1,14 @@
 package src.programmers;
 
-public class ¼ıÀÚÀÇÇ¥Çö {
+public class ìˆ«ìì˜í‘œí˜„ {
 
 	public static void main(String[] args) {
 		solution(15);
 	}//main() end
 	
 	public static void solution(int num) {
-		//k°³, Ã¹ ¼ö n
-		//k * n + (1+...+k-1) = numÀ» ¸¸Á·ÇÏ´Â n>=1ÀÌ ÀÖ´Ù¸é count
+		//kê°œ, ì²« ìˆ˜ n
+		//k * n + (1+...+k-1) = numì„ ë§Œì¡±í•˜ëŠ” n>=1ì´ ìˆë‹¤ë©´ count
 		int k=1;
 		int count=0;
 		while(sigma(k-1)<num) {
@@ -22,7 +22,7 @@ public class ¼ıÀÚÀÇÇ¥Çö {
 		System.out.println(count);
 	}//solution() end
 	
-	//1~k±îÁö ÇÕ
+	//1~kê¹Œì§€ í•©
 	public static int sigma(int k) {
 		if(k<=0) {
 			return 0;

@@ -1,6 +1,6 @@
 package src.programmers;
 
-public class Ä«Æê {
+public class ì¹´í« {
 
 	public static void main(String[] args) {
 		int brown = 10;
@@ -11,8 +11,8 @@ public class Ä«Æê {
 	public static int[] solution(int brown, int yellow) {
 		int[] answer = new int[2];
 		
-		//Á¶°Ç1. width>=length
-		//Á¶°Ç2. width, length>=3
+		//ì¡°ê±´1. width>=length
+		//ì¡°ê±´2. width, length>=3
 		int width = 0, length = 0;
 		
 		//width * length = brown+yellow;
@@ -20,10 +20,10 @@ public class Ä«Æê {
 		//width + length = (brown+4)/2;
 		int sum = (brown+4)/2;
 		
-		//w*l = multipleÀÌ¹Ç·Î
-		//multipleÀÇ ÀÎ¼ö¸¦ Ã£°í, ±× Áß w+l = sumÀÌ µÇ´Â °ÍÀÌ Á¤´ä
-		//Á¶°Ç1, 2¶§¹®¿¡ i´Â 3ºÎÅÍ, ÀÛÀº ¼öºÎÅÍ Å½»öÇÏ¹Ç·Î i°¡ length°¡ µÊ
-		//i´Â multipleÀÇ Á¦°ö±Ù±îÁö¸¸ Å½»ö
+		//w*l = multipleì´ë¯€ë¡œ
+		//multipleì˜ ì¸ìˆ˜ë¥¼ ì°¾ê³ , ê·¸ ì¤‘ w+l = sumì´ ë˜ëŠ” ê²ƒì´ ì •ë‹µ
+		//ì¡°ê±´1, 2ë•Œë¬¸ì— iëŠ” 3ë¶€í„°, ì‘ì€ ìˆ˜ë¶€í„° íƒìƒ‰í•˜ë¯€ë¡œ iê°€ lengthê°€ ë¨
+		//iëŠ” multipleì˜ ì œê³±ê·¼ê¹Œì§€ë§Œ íƒìƒ‰
 		for(int i=3; i<=(int)Math.sqrt(multiple); i++) {
 			if(multiple%i==0) {
 				length = i;

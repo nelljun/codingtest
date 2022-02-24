@@ -3,7 +3,7 @@ package src.programmers;
 import java.util.Collections;
 import java.util.PriorityQueue;
 
-public class ¶¥µû¸Ô±â {
+public class ë•…ë”°ë¨¹ê¸° {
 
 	static PriorityQueue<Integer> pq= new PriorityQueue<>(Collections.reverseOrder());
 	static boolean[] isUsed = new boolean[4];

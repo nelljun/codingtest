@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class ±â´É°³¹ß {
+public class ê¸°ëŠ¥ê°œë°œ {
 	
 //	public static void main(String[] args) {
 //		int[] progresses = {99, 90, 99, 99, 80, 99};
@@ -18,7 +18,7 @@ public class ±â´É°³¹ß {
 	
 	public static int[] solution(int[] progresses, int[] speeds) {
 		
-		//ÀÛ¾÷ Áøµµ°¡ 100ÀÌµÇ´Â ½Ã°£À» queue¿¡ ÀúÀå (¸ÕÀú ½ÃÀÛÇÑ ÀÛ¾÷ÀÌ ¸ÕÀú ¹èÆ÷°¡ µÇ¾î¾ß ÇÏ´Ï±î! FIFO)
+		//ì‘ì—… ì§„ë„ê°€ 100ì´ë˜ëŠ” ì‹œê°„ì„ queueì— ì €ì¥ (ë¨¼ì € ì‹œì‘í•œ ì‘ì—…ì´ ë¨¼ì € ë°°í¬ê°€ ë˜ì–´ì•¼ í•˜ë‹ˆê¹Œ! FIFO)
         Queue<Integer> queue = new LinkedList<>();
         
         int day = 0;
@@ -34,14 +34,14 @@ public class ±â´É°³¹ß {
         int num = 0;
         int top = 0;
         
-        //°á°ú°ª ´ãÀ» list
-        //¸î°³ÀÇ ¿ä¼Ò°¡ ³ª¿ÃÁö ¸ô¶ó¼­ ¹è¿­ÀÌ ¾Æ´Ñ list·Î ¼±¾ğ
+        //ê²°ê³¼ê°’ ë‹´ì„ list
+        //ëª‡ê°œì˜ ìš”ì†Œê°€ ë‚˜ì˜¬ì§€ ëª°ë¼ì„œ ë°°ì—´ì´ ì•„ë‹Œ listë¡œ ì„ ì–¸
         List<Integer> list = new ArrayList<Integer>();
         
-        //¸Ç À§ °ª poll³ª¼­, 
-        //±× ¾Æ·¡°ªÀ» peekÇØ¼­ ¸Ç À§ °ªº¸´Ù ÀÛ°Å³ª °°´Ù¸é, ÇØ´ç ÀÛ¾÷ÀÌ ³¡³ª±â Àü¿¡ ÀÌ¹Ì
-        //ÀÛ¾÷ÀÌ ¿Ï·áµÈ °ÍÀÌ¹Ç·Î ÇØ´ç ÀÛ¾÷°ú °°ÀÌ ¹èÆ÷°¡ °¡´ÉÇÏ´Ù.
-        //±×·¡¼­ pollÇØÁØ´Ù.
+        //ë§¨ ìœ„ ê°’ pollë‚˜ì„œ, 
+        //ê·¸ ì•„ë˜ê°’ì„ peekí•´ì„œ ë§¨ ìœ„ ê°’ë³´ë‹¤ ì‘ê±°ë‚˜ ê°™ë‹¤ë©´, í•´ë‹¹ ì‘ì—…ì´ ëë‚˜ê¸° ì „ì— ì´ë¯¸
+        //ì‘ì—…ì´ ì™„ë£Œëœ ê²ƒì´ë¯€ë¡œ í•´ë‹¹ ì‘ì—…ê³¼ ê°™ì´ ë°°í¬ê°€ ê°€ëŠ¥í•˜ë‹¤.
+        //ê·¸ë˜ì„œ pollí•´ì¤€ë‹¤.
         while(!queue.isEmpty()) {
 	        top = queue.poll();
 	        num++;

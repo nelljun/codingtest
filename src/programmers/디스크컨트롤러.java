@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 
-public class µğ½ºÅ©ÄÁÆ®·Ñ·¯ {
+public class ë””ìŠ¤í¬ì»¨íŠ¸ë¡¤ëŸ¬ {
 	
 	public static void main(String[] args) {
 		int[][] jobs = {{0,3}, {4,3}, {10,3}};
@@ -25,10 +25,10 @@ public class µğ½ºÅ©ÄÁÆ®·Ñ·¯ {
         
 		int currentTime = 0;
 		int sum = 0;
-        //1°³ÀÇ ÇÁ·Î¼¼½ºÀÇ ÃÑ °É¸®´Â ½Ã°£ = ´ë±â½Ã°£ + ¼Ò¿ä½Ã°£
-        //´ë±â½Ã°£À» ÃÖ¼ÒÈ­ÇÏ´Â °Ô ¸ñÀû
+        //1ê°œì˜ í”„ë¡œì„¸ìŠ¤ì˜ ì´ ê±¸ë¦¬ëŠ” ì‹œê°„ = ëŒ€ê¸°ì‹œê°„ + ì†Œìš”ì‹œê°„
+        //ëŒ€ê¸°ì‹œê°„ì„ ìµœì†Œí™”í•˜ëŠ” ê²Œ ëª©ì 
 		
-		//½ÃÀÛ½Ã°£À» ±âÁØÀ¸·Î ÇÑ pq (¿À¸§Â÷¼ø)
+		//ì‹œì‘ì‹œê°„ì„ ê¸°ì¤€ìœ¼ë¡œ í•œ pq (ì˜¤ë¦„ì°¨ìˆœ)
         PriorityQueue<Job> minStartPQ = new PriorityQueue<>(
         		new Comparator<Job>() {
         			@Override
@@ -36,7 +36,7 @@ public class µğ½ºÅ©ÄÁÆ®·Ñ·¯ {
         				return job1.startTime - job2.startTime;
         			}
 				});
-        //¼Ò¿ä½Ã°£À» ±âÁØÀ¸·Î ÇÑ pq (¿À¸§Â÷¼ø)
+        //ì†Œìš”ì‹œê°„ì„ ê¸°ì¤€ìœ¼ë¡œ í•œ pq (ì˜¤ë¦„ì°¨ìˆœ)
         PriorityQueue<Job> minRequiredPQ = new PriorityQueue<>(
         		new Comparator<Job>() {
         			@Override
@@ -45,16 +45,16 @@ public class µğ½ºÅ©ÄÁÆ®·Ñ·¯ {
         			}
 				});
         
-        //ÃÖ¼Ò½ÃÀÛ½Ã°£pq¿¡ job ÀûÀç
+        //ìµœì†Œì‹œì‘ì‹œê°„pqì— job ì ì¬
         for(int[] jobInfo : jobs) {
         	Job job = new Job(jobInfo[0], jobInfo[1]);
         	minStartPQ.add(job);
         }//for end
         
-        //µÎ pq°¡ ¸ğµÎ ºô ¶§±îÁö ¹İº¹
+        //ë‘ pqê°€ ëª¨ë‘ ë¹Œ ë•Œê¹Œì§€ ë°˜ë³µ
         while(!minStartPQ.isEmpty() || !minRequiredPQ.isEmpty()) {
-	        //ÇöÀç ½Ã°£±îÁö ¿äÃ» ¿Â ÀÛ¾÷À» minRequiredPQ¿¡ ÀûÀç
-	        //Áï, ÇöÀç Ã³¸®ÇÒ ¼ö ÀÖ´Â ÀÛ¾÷µéÀ» ¸ğÀ½
+	        //í˜„ì¬ ì‹œê°„ê¹Œì§€ ìš”ì²­ ì˜¨ ì‘ì—…ì„ minRequiredPQì— ì ì¬
+	        //ì¦‰, í˜„ì¬ ì²˜ë¦¬í•  ìˆ˜ ìˆëŠ” ì‘ì—…ë“¤ì„ ëª¨ìŒ
 	        while(!minStartPQ.isEmpty() 
 	        		&& (currentTime >= minStartPQ.peek().startTime)) {
 	        	Job availableJob = minStartPQ.poll();
@@ -62,21 +62,21 @@ public class µğ½ºÅ©ÄÁÆ®·Ñ·¯ {
 	        }
 	        
 	        if(minRequiredPQ.isEmpty()) {
-	        	//ÇöÀç ½Ã°£¿¡ Ã³¸®ÇÒ ¼ö ÀÖ´Â ÀÛ¾÷ÀÌ ¾øÀ» ¶§,
-	        	//Áï, ÀÛ¾÷ »çÀÌ¿¡ °ø¹éÀÌ ÀÖ´Â °æ¿ì
+	        	//í˜„ì¬ ì‹œê°„ì— ì²˜ë¦¬í•  ìˆ˜ ìˆëŠ” ì‘ì—…ì´ ì—†ì„ ë•Œ,
+	        	//ì¦‰, ì‘ì—… ì‚¬ì´ì— ê³µë°±ì´ ìˆëŠ” ê²½ìš°
 	        	Job nextJob = minStartPQ.peek();
 	        	currentTime = nextJob.startTime;
 	        } else {
-	        	//½ÇÁúÀûÀ¸·Î ÀÛ¾÷Ã³¸®
+	        	//ì‹¤ì§ˆì ìœ¼ë¡œ ì‘ì—…ì²˜ë¦¬
 		        Job onGoingJob = minRequiredPQ.poll();
-		        //ÀÛ¾÷ÀÇ ¿äÃ»ºÎÅÍ Á¾·á±îÁö °É¸° ½Ã°£ °è»ê (´ë±â½Ã°£ + Ã³¸®½Ã°£)
+		        //ì‘ì—…ì˜ ìš”ì²­ë¶€í„° ì¢…ë£Œê¹Œì§€ ê±¸ë¦° ì‹œê°„ ê³„ì‚° (ëŒ€ê¸°ì‹œê°„ + ì²˜ë¦¬ì‹œê°„)
 		        int waitingTime = currentTime - onGoingJob.startTime;
 		        sum += (onGoingJob.requiredTime + waitingTime);
-		        //ÀÛ¾÷Ã³¸® ÈÄ ÇöÀç ½Ã°£ ÀÌµ¿
+		        //ì‘ì—…ì²˜ë¦¬ í›„ í˜„ì¬ ì‹œê°„ ì´ë™
 		        currentTime += onGoingJob.requiredTime;
 	        }
 	        
-	        System.out.println("ÀÛ¾÷ ÈÄ currentTime : "+ currentTime);
+	        System.out.println("ì‘ì—… í›„ currentTime : "+ currentTime);
 	        
         }//while end
         

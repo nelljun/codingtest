@@ -1,6 +1,6 @@
 package src.programmers;
 
-public class ³×Æ®¿öÅ© {
+public class ë„¤íŠ¸ì›Œí¬ {
 
 	public static void main(String[] args) {
 		int n = 3;

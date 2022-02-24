@@ -11,7 +11,7 @@ public class Main15650 {
 	static int M;
 	static int[] arr;
 	static StringBuilder sb = new StringBuilder();
-	//¹è¿­ »ı¼º ½Ã, ¿À¸§Â÷¼ø ±âÁØÀÌ µÇ´Â ¼ö
+	//ë°°ì—´ ìƒì„± ì‹œ, ì˜¤ë¦„ì°¨ìˆœ ê¸°ì¤€ì´ ë˜ëŠ” ìˆ˜
 	static int check=0;
 
 	public static void main(String[] args) throws IOException {
@@ -26,7 +26,7 @@ public class Main15650 {
 		combination(0);
 	}//main() end
 	
-	//Á¶°Ç¿¡ ¸Â´Â ¹è¿­ ¸¸µé°í print
+	//ì¡°ê±´ì— ë§ëŠ” ë°°ì—´ ë§Œë“¤ê³  print
 	public static void combination(int index) {
 		if(index==M) {
 			printArr(arr);
@@ -34,20 +34,20 @@ public class Main15650 {
 		} else {
 			for(int i=check+1; i<=N; i++) {
 				arr[index] = i;
-				//ÇöÀç °ªÀÌ »õ·Î¿î ¿À¸§Â÷¼ø ±âÁØÀÌ µÈ´Ù
+				//í˜„ì¬ ê°’ì´ ìƒˆë¡œìš´ ì˜¤ë¦„ì°¨ìˆœ ê¸°ì¤€ì´ ëœë‹¤
 				check = i;
 				combination(index+1);
 			}//for end
 		}//if~else end
 	}//combination() end
 	
-	//¹è¿­ print method
+	//ë°°ì—´ print method
 	public static void printArr(int[] arr) {
 		for(int i=0; i<arr.length; i++) {
 			sb.append(arr[i]+" ");
 		}//for end
 		System.out.println(sb);
-		//ÇØ´ç ¹è¿­ printÈÄ sb ÃÊ±âÈ­
+		//í•´ë‹¹ ë°°ì—´ printí›„ sb ì´ˆê¸°í™”
 		sb.setLength(0);
 	}//printArr() end
 }

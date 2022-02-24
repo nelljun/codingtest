@@ -2,7 +2,7 @@ package src.programmers;
 
 import java.util.Arrays;
 
-public class Ã¼À°º¹ {
+public class ì²´ìœ¡ë³µ {
 
 	public static void main(String[] args) {
 		
@@ -35,7 +35,7 @@ public class Ã¼À°º¹ {
 		
 		for(int i=0; i<lost.length; i++) {
 			if(lost[i]==0) continue;
-				//flag ÃÊ±âÈ­	
+				//flag ì´ˆê¸°í™”	
 				flag = false;
 				for(int j=0; j<reserve.length; j++) {
 					if(reserve[j]==0) continue;

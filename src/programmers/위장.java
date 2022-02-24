@@ -3,7 +3,7 @@ package src.programmers;
 import java.util.HashMap;
 import java.util.Iterator;
 
-public class À§Àå {
+public class ìœ„ì¥ {
 
 	public int solution(String[][] clothes) {
         int answer = 1;
@@ -12,7 +12,7 @@ public class À§Àå {
         
         for(int i=0; i<clothes.length; i++) {
         	hashMap.put(clothes[i][1], hashMap.getOrDefault(clothes[i][1], 0)+1);
-        }//ÀÇ»óÀÇ Á¾·ù¸¦ value, ÇØ´ç Á¾·ùÀÇ °¹¼ö¸¦ key·Î ÀúÀå
+        }//ì˜ìƒì˜ ì¢…ë¥˜ë¥¼ value, í•´ë‹¹ ì¢…ë¥˜ì˜ ê°¯ìˆ˜ë¥¼ keyë¡œ ì €ì¥
         
 //        Set<String> keySet = hashMap.keySet();
 //        Iterator<String> keyIterator = keySet.iterator();
@@ -24,8 +24,8 @@ public class À§Àå {
         	answer *=  iterator.next().intValue()+1;
         }//while() end
         
-        //¸ğµç ¿ÊÀÇ Á¾·ù¿¡ ´ëÇØ¼­ ÀÔÁö ¾Ê´Â °æ¿ì¸¦ Æ÷ÇÔÇÏ¿© °öÇÑ ´ÙÀ½¿¡
-        //¸ğµç ¿ÊÀ» ÀÔÁö ¾ÊÀº °æ¿ì¸¦ »©ÁÖ¸é ÀüÃ¼ °æ¿ìÀÇ ¼ö°¡ ³ª¿Â´Ù.
+        //ëª¨ë“  ì˜·ì˜ ì¢…ë¥˜ì— ëŒ€í•´ì„œ ì…ì§€ ì•ŠëŠ” ê²½ìš°ë¥¼ í¬í•¨í•˜ì—¬ ê³±í•œ ë‹¤ìŒì—
+        //ëª¨ë“  ì˜·ì„ ì…ì§€ ì•Šì€ ê²½ìš°ë¥¼ ë¹¼ì£¼ë©´ ì „ì²´ ê²½ìš°ì˜ ìˆ˜ê°€ ë‚˜ì˜¨ë‹¤.
         
         return answer-1;
     }

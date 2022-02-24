@@ -4,32 +4,32 @@ import java.util.Collections;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-public class ÀÌÁß¿ì¼±¼øÀ§Å¥ {
+public class ì´ì¤‘ìš°ì„ ìˆœìœ„í {
 	public int[] solution(String[] operations) {
         int[] answer = {0, 0};
         
         StringTokenizer tokenizer = null;
         
-        //ÃÖ¼Ú°ª, ÃÖ´ñ°ª µÑ ´Ù ÇÊ¿äÇÏ¹Ç·Î ¿ì¼±¼øÀ§ Å¥ 2°³ »ı¼º
+        //ìµœì†Ÿê°’, ìµœëŒ“ê°’ ë‘˜ ë‹¤ í•„ìš”í•˜ë¯€ë¡œ ìš°ì„ ìˆœìœ„ í 2ê°œ ìƒì„±
         PriorityQueue<Integer> maxPQ = new PriorityQueue<>(Collections.reverseOrder());
         PriorityQueue<Integer> minPQ = new PriorityQueue<>();
         
         for(String operation : operations) {
         	tokenizer = new StringTokenizer(operation);
         	if(tokenizer.nextToken().equals("I")) {
-        		//¼ıÀÚ »ğÀÔ
+        		//ìˆ«ì ì‚½ì…
         		int num = Integer.parseInt(tokenizer.nextToken());
         		maxPQ.add(num);
         		minPQ.add(num);
         	} else {
-        		//¼ıÀÚ »èÁ¦
+        		//ìˆ«ì ì‚­ì œ
         		if(!maxPQ.isEmpty()) {
 	        		if(tokenizer.nextToken().equals("1")) {
-	        			//ÃÖ´ñ°ª »èÁ¦
+	        			//ìµœëŒ“ê°’ ì‚­ì œ
 	        			int max = maxPQ.poll();
 	        			minPQ.remove(max);
 	        		} else {
-	        			//ÃÖ¼Ú°ª »èÁ¦
+	        			//ìµœì†Ÿê°’ ì‚­ì œ
 	        			int min = minPQ.poll();
 	        			maxPQ.remove(min);
 	        		}//if~else end

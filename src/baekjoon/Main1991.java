@@ -35,7 +35,7 @@ public class Main1991 {
 		}//search() end
 		
 		private void searchNode(Node node, String data) {
-			//pointer°¡ Ã£´Â ³ëµå¸¦ °¡¸®Å°µµ·Ï ¸¸µë
+			//pointerê°€ ì°¾ëŠ” ë…¸ë“œë¥¼ ê°€ë¦¬í‚¤ë„ë¡ ë§Œë“¬
 				if(node==null) {
 					return;
 				}
@@ -53,9 +53,9 @@ public class Main1991 {
 		}//searchNode() end
 		
 		void insertNode(String data, String left, String right) {
-			search(data); //data¿¡ ÇØ´çÇÏ´Â ³ëµå Ã£±â
+			search(data); //dataì— í•´ë‹¹í•˜ëŠ” ë…¸ë“œ ì°¾ê¸°
 			if(pointer==null) {
-				//root = nullÀÎ °æ¿ì
+				//root = nullì¸ ê²½ìš°
 				root = new Node(data);
 				if(!left.equals(".")) {
 					root.left = new Node(left);
@@ -77,9 +77,9 @@ public class Main1991 {
 			if(node==null) {
 				return;
 			}
-			sb.append(node.data); //·çÆ® ¹æ¹®
-			preOrder(node.left); //ÁÂÃø ÀÚ½ÄÀ¸·Î ÀÌµ¿
-			preOrder(node.right); //¿ìÃø ÀÚ½ÄÀ¸·Î ÀÌµ¿
+			sb.append(node.data); //ë£¨íŠ¸ ë°©ë¬¸
+			preOrder(node.left); //ì¢Œì¸¡ ìì‹ìœ¼ë¡œ ì´ë™
+			preOrder(node.right); //ìš°ì¸¡ ìì‹ìœ¼ë¡œ ì´ë™
 		}//preOrder() end
 		private void inOrder(Node node) {
 			if(node==null) {

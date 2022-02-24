@@ -1,6 +1,6 @@
 package src.programmers;
 
-public class ¡∂¿ÃΩ∫∆Ω {
+public class Ï°∞Ïù¥Ïä§Ìã± {
 
 	public static void main(String[] args) {
 		String name = "JEROEN";
@@ -12,7 +12,7 @@ public class ¡∂¿ÃΩ∫∆Ω {
 		int length = name.length();
 		
 		for(int i=0; i<length; i++) {
-			//ªÛ«œ ¿Ãµø
+			//ÏÉÅÌïò Ïù¥Îèô
 			char character = name.charAt(i);
 			if(character!='A') {
 				count += Math.min(character-'A', 'Z'-character+1);

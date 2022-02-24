@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-public class ÇÁ¸°ÅÍ2 {
+public class í”„ë¦°í„°2 {
 	public static void main(String[] args) {
 		int[] priorities = {2,1,3,2};
 		int location = 0;
@@ -19,20 +19,20 @@ public class ÇÁ¸°ÅÍ2 {
 		//Max heap
 		Queue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
 		
-		//Áß¿äµµ °ªÀ» pq¿¡ add
+		//ì¤‘ìš”ë„ ê°’ì„ pqì— add
 		for(int priority : priorities) {
 			pq.add(priority);
 		}//for end
 		
-		//pq°¡ ºô¶§±îÁö ¹İº¹
+		//pqê°€ ë¹Œë•Œê¹Œì§€ ë°˜ë³µ
 		while(!pq.isEmpty()) {
-			//pq¿¡¼­ ³ª¿À´Â °ª°ú °°Àº °æ¿ì Å½»ö
+			//pqì—ì„œ ë‚˜ì˜¤ëŠ” ê°’ê³¼ ê°™ì€ ê²½ìš° íƒìƒ‰
 			for(int i=0; i<priorities.length; i++) {
-				//°ªÀÌ °°´Ù¸é Ãâ·Â!
+				//ê°’ì´ ê°™ë‹¤ë©´ ì¶œë ¥!
 				if(pq.peek()==priorities[i]) {
 					pq.poll();
 					answer++;
-					//°ªÀÌ °°°í, À§Ä¡µµ °°´Ù¸é answer ¹İÈ¯
+					//ê°’ì´ ê°™ê³ , ìœ„ì¹˜ë„ ê°™ë‹¤ë©´ answer ë°˜í™˜
 					if(i == location) return answer;
 				}
 			}//for end

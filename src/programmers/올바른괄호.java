@@ -2,7 +2,7 @@ package src.programmers;
 
 import java.util.Stack;
 
-public class ¿Ã¹Ù¸¥°ýÈ£ {
+public class ì˜¬ë°”ë¥¸ê´„í˜¸ {
 	
 	public static void main(String[] args) {
 		String s = "))";
@@ -32,7 +32,7 @@ public class ¿Ã¹Ù¸¥°ýÈ£ {
 		
 	}//solution() end
 	
-	//Stack È°¿ë
+	//Stack í™œìš©
 	public static boolean solution2(String s) {
 		
 		Stack<Character> openStk = new Stack<>();

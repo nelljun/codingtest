@@ -1,6 +1,6 @@
 package src.programmers;
 
-public class Å«¼ö¸¸µé±â {
+public class í°ìˆ˜ë§Œë“¤ê¸° {
 
 	public static void main(String[] args) {
 		String number = "1231234";
@@ -16,7 +16,7 @@ public class Å«¼ö¸¸µé±â {
 		int index = -1;
 		int max = -1;
 		
-		//string -> int[] º¯È¯
+		//string -> int[] ë³€í™˜
 		for(int i=0; i<length; i++) {
 			intArr[i] = number.charAt(i)-'0';
 		}//for end
@@ -27,7 +27,7 @@ public class Å«¼ö¸¸µé±â {
 					max = intArr[i];
 					index = i;
 				}//if end
-				if(max==9)	break; //9ÀÏ °æ¿ì ÃÖ´ë°ªÀÌ¹Ç·Î ´õÀÌ»ó ÁøÇàx
+				if(max==9)	break; //9ì¼ ê²½ìš° ìµœëŒ€ê°’ì´ë¯€ë¡œ ë”ì´ìƒ ì§„í–‰x
 			}//for end
 			sb.append(max);
 			max = -1;

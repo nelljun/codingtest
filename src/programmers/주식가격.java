@@ -1,6 +1,6 @@
 package src.programmers;
 
-public class ÁÖ½Ä°¡°İ {
+public class ì£¼ì‹ê°€ê²© {
 	public int[] solution(int[] prices) {
 	    int[] answer = new int[prices.length];
 	    

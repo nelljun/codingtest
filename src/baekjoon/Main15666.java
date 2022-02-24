@@ -17,12 +17,12 @@ public class Main15666 {
 	static int M;
 	static int[] givenArr;
 	static int[] arr;
-	//ºñ³»¸²Â÷¼øÀ» À§ÇÑ ±âÁØ
+	//ë¹„ë‚´ë¦¼ì°¨ìˆœì„ ìœ„í•œ ê¸°ì¤€
 	static int check = 0;
 	static StringBuilder sb = new StringBuilder();
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-	//ÀÔ·ÂÇÑ ¼ø¼­´ë·Î Á¤·ÄÇØ¾ßÇÏ¹Ç·Î LinkedHashSet
+	//ì…ë ¥í•œ ìˆœì„œëŒ€ë¡œ ì •ë ¬í•´ì•¼í•˜ë¯€ë¡œ LinkedHashSet
 	static Set<String> set = new LinkedHashSet<>();
 	
 	public static void main(String[] args) throws IOException {
@@ -38,19 +38,19 @@ public class Main15666 {
 			givenArr[i] = Integer.parseInt(st.nextToken());
 		}//for end
 		
-		//N°³ÀÇ ¼ö ´ãÀº ¹è¿­ Á¤·Ä
+		//Nê°œì˜ ìˆ˜ ë‹´ì€ ë°°ì—´ ì •ë ¬
 		Arrays.sort(givenArr);
 		
 		arr = new int[M];
 		
-		//¹è¿­ Á¶ÇÕ
+		//ë°°ì—´ ì¡°í•©
 		combination(0);
 		printSet(set);
-		//bw¿¡ ÀûÀçµÈ String Ãâ·Â
+		//bwì— ì ì¬ëœ String ì¶œë ¥
 		bw.flush();
 	}//main() end
 	
-	//¹è¿­ Á¶ÇÕ ÈÄ set¿¡ ÀúÀå method
+	//ë°°ì—´ ì¡°í•© í›„ setì— ì €ì¥ method
 	public static void combination(int index) throws IOException {
 		if(index==M) {
 			set.add(arrToStr(arr));
@@ -64,14 +64,14 @@ public class Main15666 {
 		}//if~else end
 	}//combination() end
 	
-	//set¿¡ ÀúÀåµÈ ¹è¿­µé Ãâ·Â method (bw¿¡ ÀûÀç)
+	//setì— ì €ì¥ëœ ë°°ì—´ë“¤ ì¶œë ¥ method (bwì— ì ì¬)
 	public static void printSet(Set<String> set) throws IOException {
 
 		Iterator<String> iter = set.iterator();
 		
 		while(iter.hasNext()) {
 			String numArrStr = iter.next();
-			//bw¿¡ Àû°í ÁÙ¹Ù²Ş
+			//bwì— ì ê³  ì¤„ë°”ê¿ˆ
 			bw.write(numArrStr);
 			bw.newLine();
 		}//while end

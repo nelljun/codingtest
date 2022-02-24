@@ -3,7 +3,7 @@ package src.programmers;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class ´Ù¸®¸¦Áö³ª´ÂÆ®·°2 {
+public class ë‹¤ë¦¬ë¥¼ì§€ë‚˜ëŠ”íŠ¸ëŸ­2 {
 	
 	public int solution(int bridgeLength, int weight, int[] truckWeights) {
 		int time = 0;
@@ -11,19 +11,19 @@ public class ´Ù¸®¸¦Áö³ª´ÂÆ®·°2 {
         
         Queue<Integer> bridge = new LinkedList<>();
         
-        //Á¶°Ç 1. ´Ù¸® ¹«°Ô
-        //Á¶°Ç 2. ´Ù¸® À§ Æ®·° ¼ö
+        //ì¡°ê±´ 1. ë‹¤ë¦¬ ë¬´ê²Œ
+        //ì¡°ê±´ 2. ë‹¤ë¦¬ ìœ„ íŠ¸ëŸ­ ìˆ˜
         
         for(int truckWeight : truckWeights) {
         	while(true) {
 	        	if(bridge.isEmpty()) {
-	        		//´Ù¸®°¡ ºó °æ¿ì
+	        		//ë‹¤ë¦¬ê°€ ë¹ˆ ê²½ìš°
 	        		bridge.add(truckWeight);
 	        		sum += truckWeight;
 	        		time++;
 	        		break;
 	        	} else if(bridge.size()==bridgeLength) {
-	        		//´Ù¸®°¡ ²Ë Âù °æ¿ì
+	        		//ë‹¤ë¦¬ê°€ ê½‰ ì°¬ ê²½ìš°
         			sum -= bridge.poll();
 	        	} else {
 	        		if(sum + truckWeight > weight) {

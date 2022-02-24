@@ -2,11 +2,11 @@ package src.programmers;
 
 import java.util.PriorityQueue;
 
-public class ´õ¸Ê°Ô {
+public class ë”ë§µê²Œ {
 	public int solution(int[] scoville, int K) {
         int answer = 0;
-        //¹è¿­ °ª Áß¿¡¼­ Ã¹¹øÂ°, µÎ¹øÂ° ÀÛÀº ¼ö¸¦ Ã£¾Æ¾ß ÇÏ¹Ç·Î
-        //¿ì¼±¼øÀ§ Å¥ »ç¿ë
+        //ë°°ì—´ ê°’ ì¤‘ì—ì„œ ì²«ë²ˆì§¸, ë‘ë²ˆì§¸ ì‘ì€ ìˆ˜ë¥¼ ì°¾ì•„ì•¼ í•˜ë¯€ë¡œ
+        //ìš°ì„ ìˆœìœ„ í ì‚¬ìš©
         PriorityQueue<Integer> pq = new PriorityQueue<>();
         
         for(int num : scoville) {

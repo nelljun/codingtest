@@ -39,8 +39,8 @@ public class Main10816 {
 	}//main() end
 	
 	static int binarySearch(int[] intArr, int key) {
-		//Å° °ªÀÌ °°Àº ¿ä¼Ò °¹¼ö ¸®ÅÏ
-		//ÀÖÀ¸¸é °¹¼ö, ¾øÀ¸¸é 0
+		//í‚¤ ê°’ì´ ê°™ì€ ìš”ì†Œ ê°¯ìˆ˜ ë¦¬í„´
+		//ìˆìœ¼ë©´ ê°¯ìˆ˜, ì—†ìœ¼ë©´ 0
 		int pl = 0;
 		int pr = intArr.length-1;
 		int count = 0;

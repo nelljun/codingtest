@@ -6,14 +6,14 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-class ¿ÏÁÖÇÏÁö¸øÇÑ¼±¼ö {
+class ì™„ì£¼í•˜ì§€ëª»í•œì„ ìˆ˜ {
 	
     public String solution(String[] participant, String[] completion) {
         
         Arrays.sort(participant);
         Arrays.sort(completion);
         
-        //µÎ ¹è¿­À» Á¤·ÄÇÏ¸é, °°Àº index¿¡¼­ÀÇ ¿ä¼Ò°¡ ´Ù¸£´Ù¸é ÇØ´ç participant¹è¿­ÀÇ ¿ä¼Ò°¡ ¿ÏÁÖÇÏÁö ¸øÇÑ Âü°¡ÀÚ
+        //ë‘ ë°°ì—´ì„ ì •ë ¬í•˜ë©´, ê°™ì€ indexì—ì„œì˜ ìš”ì†Œê°€ ë‹¤ë¥´ë‹¤ë©´ í•´ë‹¹ participantë°°ì—´ì˜ ìš”ì†Œê°€ ì™„ì£¼í•˜ì§€ ëª»í•œ ì°¸ê°€ì
         int i = 0;
         for(i=0; i<completion.length; i++) {
         	if(!participant[i].equals(completion[i])) {
@@ -30,12 +30,12 @@ class ¿ÏÁÖÇÏÁö¸øÇÑ¼±¼ö {
     	
     	HashMap<String, Integer> map = new HashMap<>();
     	
-    	//map<Âü°¡ÀÚ ÀÌ¸§, ÇØ´ç ÀÌ¸§ÀÇ Âü°¡ÀÚ ¼ö>
+    	//map<ì°¸ê°€ì ì´ë¦„, í•´ë‹¹ ì´ë¦„ì˜ ì°¸ê°€ì ìˆ˜>
     	//map.getOrDefault()
     	for(String player : participant) {
     		map.put(player, map.getOrDefault(player, 0) + 1);
     	}//for end
-    	//Âü°¡ÀÚ¸¦ ¸ğµÎ Ãß°¡ÇÑ map¿¡¼­ ¿ÏÁÖÇÑ »ç¶÷À» »«´Ù
+    	//ì°¸ê°€ìë¥¼ ëª¨ë‘ ì¶”ê°€í•œ mapì—ì„œ ì™„ì£¼í•œ ì‚¬ëŒì„ ëº€ë‹¤
     	for(String player : completion) {
     		map.put(player, map.get(player)-1);
     	}//for end
@@ -44,7 +44,7 @@ class ¿ÏÁÖÇÏÁö¸øÇÑ¼±¼ö {
     	Set<Map.Entry<String, Integer>> entrySet = map.entrySet();
        	Iterator<Map.Entry<String, Integer>> entryIterator = entrySet.iterator();
     	
-       	//¿ÏÁÖÀÚ¸¦ ¸ğµÎ »°À» ¶§ ÇØ´ç map¿¡¼­ value°ªÀÌ 0ÀÌ ¾Æ´Ñ key°¡ ¿ÏÁÖÇÏÁö ¸øÇÑ Âü°¡ÀÚ
+       	//ì™„ì£¼ìë¥¼ ëª¨ë‘ ëºì„ ë•Œ í•´ë‹¹ mapì—ì„œ valueê°’ì´ 0ì´ ì•„ë‹Œ keyê°€ ì™„ì£¼í•˜ì§€ ëª»í•œ ì°¸ê°€ì
     	while(entryIterator.hasNext()) {
     		Map.Entry<String, Integer> entry = entryIterator.next();
     		if(entry.getValue()!=0) {
