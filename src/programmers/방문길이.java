@@ -3,63 +3,57 @@ package src.programmers;
 public class 방문길이 {
 
 	public static void main(String[] args) {
-		String dirs = "LULLLLLLU";
+		String dirs = "LRLRL";
 		solution(dirs);
 	}//main() end
 	
-	//캐릭터 이동
 	public static void solution(String dirs) {
-		
-		//가로선
-		boolean[][] isVisitedHor = new boolean[11][10];
-		//세로선
-		boolean[][] isVisitedVer = new boolean[10][11];
-		
-		char[] dirArr = dirs.toCharArray();
-		
-		//캐릭터 위치 (0,0) -> {0, 0}로 저장
-		//그래프의 (-5, -5)를 (0, 0)으로 가정
-		//시작위치 = (5,5)
-		int[] location = {5, 5};
-		
-		int count = 0;
-		
-		for(char dir : dirArr) {
-//			System.out.println("location = {"+location[0]+", "+location[1]+"}");
-			int x = location[0];
-			int y = location[1];
-			switch(dir) {
-			case 'U': if(y==10) break;
-					  if(!isVisitedVer[y+1][x+1]) {
-							isVisitedVer[y+1][x+1] = true;
-							count++;
-					  }
-					  location[1] += 1;
-					  break;
-			case 'D': if(y==0) break;
-					  if(!isVisitedVer[y][x+1]) {
-						  isVisitedVer[y][x+1] = true;
-						  count++;
-					  }
-			  		  location[1] -= 1;
-			  		  break; 
-			case 'L': if(x==0) break;
-					  if(!isVisitedHor[y+1][x]) {
-						  isVisitedHor[y+1][x] = true;
-						  count++;
-					  }
-				      location[0] -= 1;
-				      break; 
-			case 'R': if(x==10) break;
-					  if(!isVisitedHor[y+1][x+1]) {
-						  isVisitedHor[y+1][x+1] = true;
-						  count++;
-					  }
-					  location[0] += 1;
-					  break; 
+
+		char[] charArr = dirs.toCharArray();
+
+		//(y좌표, x좌표, 방향)
+		boolean[][][] isVisited = new boolean[11][11][4];
+
+		int x = 5, y = 5;
+		int newX = 0, newY = 0;
+		int dir = -1;
+		int cnt = 0;
+		int[] dirColNum = {1, 0, -1, 0};
+		int[] dirRowNum = {0, 1, 0, -1};
+		for(char dirChar : charArr) {
+			System.out.println("location : ("+x+", "+y+")");
+			switch(dirChar) {
+				case 'U': dir=0;
+				break;
+				case 'R': dir=1;
+				break;
+				case 'D': dir=2;
+				break;
+				case 'L': dir=3;
+				break;
 			}//switch case end
+			newX = x + dirRowNum[dir];
+			newY = y + dirColNum[dir];
+			if(!isInRange(newX, newY)) {
+				continue;
+			}
+			if(!isVisited[y][x][dir]) {
+				isVisited[y][x][dir] = true;
+				cnt++;
+				isVisited[newY][newX][(dir+2)%4] = true;
+			}
+			x = newX;
+			y = newY;
 		}//for end
-		
-		System.out.println(count);
-	}//solution() end
+		System.out.println(cnt);
+	}//solution2() end
+
+	public static boolean isInRange(int x, int y) {
+		return (0<=x && x<=10
+				&& 0<=y && y<=10);
+	}
+
+	public static void printLocation(int[] location) {
+		System.out.println("("+location[0]+", "+location[1]+")");
+	}
 }
