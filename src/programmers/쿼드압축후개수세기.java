@@ -10,7 +10,7 @@ public class 쿼드압축후개수세기 {
     public static int[] solution(int[][] arr) {
         compress(arr, arr.length, 0, 0);
         System.out.println("zero : "+theNumOfZero+", one : "+theNumOfOne);
-        int[] answer = {theNumOfZero, theNumOfOne}
+        int[] answer = {theNumOfZero, theNumOfOne};
         return answer;
     }//solution() end
 
