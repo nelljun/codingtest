@@ -24,4 +24,15 @@ public class 멀쩡한사각형 {
 
         return w*(long)h - sumOfUnUsedSqr;
     }//solution() end
+
+    public static long solution2(int w, int h) {
+        int gcd = gcd(w, h);
+        return ((long) w * (long) h) - ((((long) w / gcd) + ((long) h / gcd) - 1) * gcd);
+    }//solution2() end
+
+    public static int gcd(int a, int b) {
+        if(b==0) return a;
+
+        return gcd(b, a%b);
+    }//gcd() end
 }
