@@ -58,11 +58,7 @@ public class 괄호변환 {
         int length = parStr.length();
 
         for (int i = 1; i < length-1; i++) {
-            if (parStr.charAt(i) == '(') {
-                sb.append(')');
-            } else {
-                sb.append('(');
-            }
+            sb.append((parStr.charAt(i)=='(')? ')' : '(');
         }//for end
 
         return sb.toString();
