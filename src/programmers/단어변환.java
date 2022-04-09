@@ -1,9 +1,9 @@
 package src.programmers;
 
-public class 단어변환 {
+import java.util.LinkedList;
+import java.util.Queue;
 
-	static boolean[] visited;
-	static int answer;
+public class 단어변환 {
 	
 	public static void main(String[] args) {
 		
@@ -14,39 +14,116 @@ public class 단어변환 {
 		solution(begin, target, words);
 		
 	}//main() end
+
+	static boolean[] isUsed;
 	
-	public static void solution(String begin, String target, String[] words) {
-		
-		visited = new boolean[words.length];
-		
-		dfs(begin, target, words, 0);
+	public static int solution(String begin, String target, String[] words) {
+
+		boolean isOkToGo = false;
+
+		for (int i = 0; i < words.length; i++) {
+			if (words[i].equals(target)) {
+				isOkToGo = true;
+				break;
+			}
+		}//for end
+		if (!isOkToGo) {
+			return 0;
+		}
+
+		isUsed = new boolean[words.length];
+
+		return bfs(begin, target, words);
 		
 	}//solution() end
 	
-	public static void dfs(String now, String target, String[] words, int count) {
-		if(now.equals(target)) {
-			answer = (answer<=count) ? answer : count;
+	public static int bfs(String begin, String target, String[] words) {
+
+		Queue<String> queue = new LinkedList<>();
+
+		int arrLength = words.length;
+		int distFromBegin = 0;
+		boolean isFoundTarget = false;
+
+		queue.add(begin);
+
+		while (!queue.isEmpty()) {
+			int size = queue.size();
+			while (size-- != 0) {
+				String nowStr = queue.poll();
+
+				if (nowStr.equals(target)) {
+					isFoundTarget = true;
+					break;
+				}
+
+				for (int i = 0; i < arrLength; i++) {
+					if (compareStr(nowStr, words[i]) && !isUsed[i]) {
+						queue.add(words[i]);
+					}
+				}//for end
+			}//while end
+			if (isFoundTarget) {
+				break;
+			}
+			distFromBegin++;
+		}//while end
+
+		return isFoundTarget? distFromBegin : 0;
+	}//dfs() end
+
+
+	//1개 차이
+	public static boolean compareStr(String str1, String str2) {
+		char[] charArr1 = str1.toCharArray();
+		char[] charArr2 = str2.toCharArray();
+
+		int length = str1.length();
+
+		int count = 0;
+		for (int i = 0; i < length; i++) {
+			if (charArr1[i]!=charArr2[i]) count++;
+		}//for end
+
+		return count==1;
+	}
+
+	static int min = 100;
+
+
+	public static int solution2(String begin, String target, String[] words) {
+		boolean isOkToGo = false;
+
+		for (int i = 0; i < words.length; i++) {
+			if (words[i].equals(target)) {
+				isOkToGo = true;
+				break;
+			}
+		}//for end
+		if (!isOkToGo) {
+			return 0;
+		}
+
+		isUsed = new boolean[words.length];
+
+		dfs(0, begin, target, words);
+
+		return min;
+	}//solution() end
+	//dfs
+	public static void dfs(int count, String now, String target, String[] words) {
+		if (now.equals(target)) {
+			min = Math.min(min, count);
 			return;
 		}
-		for(int i=0; i<words.length; i++) {
-			if(!visited[i] && compareStr(now, words[i])) {
-				now = words[i];
-				visited[i] = true;
-				dfs(now, target, words, ++count);
-				visited[i] = false;
-			}//if end
+
+		for (int i = 0; i < words.length; i++) {
+			if (compareStr(now, words[i]) && !isUsed[i]) {
+				isUsed[i] = true;
+				dfs(count+1, words[i], target, words);
+				isUsed[i] = false;
+			}
 		}//for end
-		
-	}//dfs() end
-	
-	public static boolean compareStr(String word1, String word2) {
-		int length = word1.length();
-		int count = 0;
-		
-		for(int i=0; i<length && count<2; i++) {
-			if(word1.charAt(i)!=word2.charAt(i)) count++;
-		}//for end
-		
-		return count==1;
-	}//compare
+	}
+
 }
