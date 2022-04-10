@@ -19,7 +19,7 @@ public class 위장 {
         }//for end
 
         //map 탐색할 iterator
-        Iterator<String> iterator = clothesMap.keySet().iterator();
+        Iterator<Integer> iterator = clothesMap.values().iterator();
 
         /**
          * 어떤 종류의 옷이 i개라면,
@@ -28,10 +28,20 @@ public class 위장 {
          */
         int answer = 1;
         while (iterator.hasNext()) {
-            answer *= clothesMap.get(iterator.next())+1;
+            answer *= iterator.next()+1;
         }//while end
 
         return answer-1;
 
     }//solution() end
+
+    //Stream
+    public static int  solution2(String[][] clothes) {
+        return Arrays.stream(clothes)
+                .map(c -> c[1])
+                .distinct()
+                .map(type -> (int) Arrays.stream(clothes).filter(c -> c[1].equals(type)).count())
+                .map(c -> c + 1)
+                .reduce(1, (c, n) -> c * n) - 1;
+    }
 }
