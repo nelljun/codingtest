@@ -5,42 +5,55 @@ import java.util.Set;
 
 public class 소수찾기 {
 
-	//만든 수 담을 Set (중복된 값 신경x)
-	static Set<Integer> numSet = new HashSet<>();
-	
 	public static void main(String[] args) {
-		String numbers = "1234";
+		String numbers = "011";
 		solution(numbers);
 	}//main() end
+
+	static Set<Integer> primeSet;
+	static char[] numCharArr;
+	static boolean[] isUsed;
+	static StringBuilder sb;
 	
-	public static void combination(int level, int length, String[] numStrArr) {
-		
-	}//combination() end
-	
-	public static void solution(String numbers) {
-		int length = numbers.length();
-		String[] numStrArr = new String[length];
-		for(int i=0; i<length; i++) {
-			numStrArr[i] = numbers.substring(i, i+1);
-		}
-		
-		
-		
+	public static int solution(String numbers) {
+		int totalLength = numbers.length();
+		primeSet = new HashSet<>();
+		numCharArr = numbers.toCharArray();
+		isUsed = new boolean[totalLength];
+		sb = new StringBuilder();
+
+		dfs(0, totalLength);
+
+		return primeSet.size();
 	}//solution() end
-	
-	public static boolean isPrime(int num) {
-		boolean result = true;
-		
-		int sqr = (int)Math.sqrt(num);
-		
-		for(int i=2; i<=sqr; i++) {
-			if(num%i == 0) {
-				result = false;
-				break;
-			}//if end
+
+	public static void dfs(int length, int totalLength) {
+		if (sb.length()>0) {
+			int nowNum = Integer.parseInt(sb.toString());
+			if (isPrime(nowNum)) {
+				primeSet.add(nowNum);
+			}
+		}
+		if (length==totalLength) return;
+
+		for (int i = 0; i < numCharArr.length; i++) {
+			if (!isUsed[i]) {
+				isUsed[i] = true;
+				sb.append(numCharArr[i]);
+				dfs(length+1, totalLength);
+				isUsed[i] = false;
+				sb.deleteCharAt(sb.length()-1);
+			}
 		}//for end
-		
-		return result;
+	}//dfs() end
+
+	public static boolean isPrime(int n) {
+		if (n==0 || n==1) return false;
+
+		for (int i = 3; i <= (int)(Math.sqrt(n)); i+=2) {
+			if (n%i == 0) return false;
+		}//for end
+
+		return true;
 	}//isPrime() end
-	
 }
