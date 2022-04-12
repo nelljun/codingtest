@@ -4,107 +4,74 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class 게임맵최단거리 {
-
     public static void main(String[] args) {
-        int[][] maps1 = {{1,0,1,1,1}, {1,0,1,0,1}, {1,0,1,1,1}, {1,1,1,0,1}, {0,0,0,0,1}};
-        int[][] maps2 = {{1,0,1,1,1}, {1,0,1,0,1}, {1,0,1,1,1}, {1,1,1,0,0}, {0,0,0,0,1}};
+        int[][] maps = {{1,0,1,1,1},{1,0,1,0,1},{1,0,1,1,1},{1,1,1,0,1},{0,0,0,0,1}};
+        int[][] maps2 = {{1,0,1,1,1}, {1,0,1,0,1},{1,0,1,1,1},{1,1,1,0,0},{0,0,0,0,1}};
+        solution(maps2);
+    }
+    static boolean[][] isVisited;
 
-        solution(maps1);
-    }//main() end
-
-    public static boolean[][] isVisited;
+    //어느 한 지점에서 1칸씩 이동하기 위한 배열
+    static final int[] DIRECTIONS_ROW = {1, 0 , -1, 0};
+    static final int[] DIRECTIONS_COL = {0, 1, 0, -1};
 
     public static int solution(int[][] maps) {
-        isVisited = new boolean[maps.length][maps[0].length];
+        int n = maps.length;
+        int m = maps[0].length;
 
-        dfs(0, 0, maps, 1);
-        //갱신이 한번도 안되었으면 목적지 도착하지 못한 것이니 -1 리턴
-        return (min==Integer.MAX_VALUE)? -1 : min;
+        isVisited = new boolean[n][m];
+
+        return bfs(0, 0, maps);
     }//solution() end
 
-    static int min = Integer.MAX_VALUE;
+    //1칸씩 이동하면서 너비탐색
+    public static int bfs(int firstRow, int firstColumn, int[][] maps) {
+        //탐색할 포인트 좌표 저장할 queue
+        Queue<int[]> queue = new LinkedList<>();
+        int n = maps.length;
+        int m = maps[0].length;
 
-    public static void dfs(int y, int x, int[][] maps, int count) {
+        //시작 지점에서 각 포인트까지 길이 저장할 distMaps
+        int[][] distMaps = new int[n][m];
 
-        isVisited[y][x] = true;
+        /**
+         * 시작지점 방문 체크 후
+         * 해당 포인트까지의 거리 저장, queue에 해당 포인트 저장
+         */
+        isVisited[firstRow][firstColumn] = true;
+        distMaps[firstRow][firstColumn] = 1;
+        queue.add(new int[]{firstRow, firstColumn});
 
-        if(y==maps.length-1 && x==maps[0].length-1) {
-            //목적지 도착 -> 최솟값 갱신
-            min = Math.min(min, count);
-            return;
-        }
+        while (!queue.isEmpty()) {
+            //현재 탐색할 Point
+            int[] nowPoint = queue.poll();
+            int row = nowPoint[0];
+            int column = nowPoint[1];
+            int distance = distMaps[row][column];
 
-        //right
-        if(isOkToGo(y, x+1, maps)) {
-            dfs(y, x+1, maps, count+1);
-        }
-        //down
-        if(isOkToGo(y+1, x, maps)) {
-            dfs(y+1, x, maps, count+1);
-        }
-        //left
-        if(isOkToGo(y, x-1, maps)) {
-            dfs(y, x-1, maps, count+1);
-        }
-        //up
-        if(isOkToGo(y-1, x, maps)) {
-            dfs(y-1, x, maps, count+1);
-        }
+            //동, 서, 남, 북으로 1칸씩 이동할 수 있는지 체크
+            //이동할 수 있으면 방문 체크, queue에 add, distMaps에 이동한 위치까지의 거리 갱신
+            for (int i = 0; i < 4; i++) {
+                int newRow = row + DIRECTIONS_ROW[i];
+                int newColumn = column + DIRECTIONS_COL[i];
 
-        //모든 방향 try 후 현재 위치 false로 초기화
-        isVisited[y][x] = false;
-    }//dfs() end
-
-    //이동 시 벽, 범위, 방문여부 확인하는 method
-    public static boolean isOkToGo(int y, int x, int[][] maps) {
-        return !(y > maps.length-1 || y<0
-                || x > maps[0].length-1 || x<0
-                || maps[y][x]==0
-                || isVisited[y][x]);
-    }//isOkToGo() end
-
-    static int[] dy = {1, 0, -1, 0}, dx = {0, 1, 0, -1};
-
-    //bfs 풀이
-    public static int solution2(int[][] maps) {
-        int rows = maps.length;
-        int columns = maps[0].length;
-
-        isVisited = new boolean[rows][columns];
-
-        Queue<Point> queue = new LinkedList<>();
-
-        queue.add(new Point(0, 0, 1));
-        isVisited[0][0] = true;
-
-        while(!queue.isEmpty()) {
-            Point point = queue.poll();
-            if(point.y==rows-1 && point.x==columns-1) return point.distance;
-
-            for(int i=0; i<4; i++) {
-                int ny = point.y + dy[i];
-                int nx = point.x + dx[i];
-
-                if(isOkToGo(ny, nx, maps)) {
-                    isVisited[ny][nx] = true;
-                    queue.add(new Point(ny, nx, point.distance+1));
-                }
+                //맵을 벗어나지 않은 위치고, 방문하지 않았고, 벽이 아니라면 이동 가능!
+                if (newRow<n && newRow>=0
+                        && newColumn<m && newColumn>=0
+                        && !isVisited[newRow][newColumn]
+                        && maps[newRow][newColumn]==1) {
+                    isVisited[newRow][newColumn] = true;
+                    //현재 탐색 point에서 한 칸 이동했으므로 distance+1
+                    distMaps[newRow][newColumn] = distance+1;
+                    queue.add(new int[]{newRow, newColumn});
+                }//if end
             }//for end
         }//while end
 
-        return -1;
 
-    }//solution2() end
-
-    public static class Point {
-        int y;
-        int x;
-        int distance;
-
-        Point(int y, int x, int distance) {
-            this.y = y;
-            this.x = x;
-            this.distance = distance;
-        }
-    }
+        /**
+         * 최종 위치의 거리 값이 0이면 도착하지 못하는 경우이므로 -1 리턴
+         */
+        return (distMaps[n-1][m-1]==0)? -1 : distMaps[n-1][m-1];
+    }//bfs() end
 }
