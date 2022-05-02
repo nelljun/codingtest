@@ -30,13 +30,12 @@ public class 순위검색 {
         int[] answer = new int[query.length];
         int index = 0;
         for (String conditions : query) {
-            String[] condition = conditions.split(" ");
-
+            String[] condition = conditions.replaceAll("and ", "").split(" ");
             answer[index++] = find(condition[0],
+                                    condition[1],
                                     condition[2],
+                                    condition[3],
                                     condition[4],
-                                    condition[6],
-                                    condition[7],
                                     info);
 
         }//for end
@@ -76,11 +75,15 @@ public class 순위검색 {
         map = new HashMap<>();
 
         for (String conditions : info) {
+            //지원자마다 sb 초기화
             sb.setLength(0);
+            //빈 칸을 기준으로 조건 split
             String[] condition = conditions.split(" ");
+            //가능한 모든 query와 score를 map에 저장
             makeStr(0, condition, sb);
         }//for end
 
+        //각 key에 해당하는 score list 오름차순 정리
         for (String key : map.keySet()) {
             Collections.sort(map.get(key));
         }//for end
@@ -88,9 +91,15 @@ public class 순위검색 {
         int answerSize = query.length;
         int[] answer = new int[answerSize];
 
+        //주어진 각 query에서 해당하는 학생들 중 기준 점수 이상인 학생 수 저장
         for (int i = 0; i < answerSize; i++) {
+            //query의 " and "를 ""롤 바꾼 후 빈 칸을 기준으로 split 한다.
             String[] queryInfo = query[i].replaceAll(" and ", "").split(" ");
-            answer[i] = map.containsKey(queryInfo[0])? rank(queryInfo[0], Integer.parseInt(queryInfo[1])) : 0;
+            /**
+             * queryInfo[0] : map의 key와 같은 query 형식
+             * queryInfo[1] : 기준 점수
+             */
+            answer[i] = map.containsKey(queryInfo[0])? countAbove(queryInfo[0], Integer.parseInt(queryInfo[1])) : 0;
         }//for end
 
         return answer;
@@ -98,22 +107,29 @@ public class 순위검색 {
 
     public static void makeStr(int index, String[] condition, StringBuilder sb) {
         if (index==4) {
+            //4가지 정보에 대한 query 모두 만들었으면
             String keyStr = sb.toString();
+            //현재 keyStr에 해당하는 entry가 없으면 value에 들어갈 list 생성 후 map에 put
             if (!map.containsKey(keyStr)) {
                 ArrayList<Integer> list = new ArrayList<>();
                 map.put(keyStr, list);
             }
+            //해당 list에 현재 지원자의 정보를 저장
             map.get(keyStr).add(Integer.parseInt(condition[4]));
             return;
         }
 
+        //"-"포함한 query
         makeStr(index+1, condition, sb.append("-"));
+        //sb에서 "-"제거
         sb.deleteCharAt(sb.length()-1);
+        //현재 index에 해당하는 정보를 sb에 append
         makeStr(index+1, condition, sb.append(condition[index]));
+        //현재 index에 해당하는 정보 sb에서 delete
         sb.delete(sb.length()-condition[index].length(), sb.length());
     }
 
-    public static int rank(String key, int queryScore) {
+    public static int countAbove(String key, int queryScore) {
         ArrayList<Integer> scores = map.get(key);
         int scoresSize = scores.size();
 
