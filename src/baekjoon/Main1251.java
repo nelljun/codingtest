@@ -54,4 +54,31 @@ public class Main1251 {
         }//for end
         return sb.toString();
     }
+
+    //simple solution (no set, no dfs)
+    public static void main2(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+
+        String original = bf.readLine();
+
+        int length = original.length();
+
+        List<String> list = new ArrayList<>();
+
+        for (int i = 1; i < length-1; i++) {
+            for (int j = i+1; j < length; j++) {
+                String str1 = reverse(original.substring(0, i));
+                String str2 = reverse(original.substring(i, j));
+                String str3 = reverse(original.substring(j, length));
+
+                sb.setLength(0);
+                sb.append(str1).append(str2).append(str3);
+                list.add(sb.toString());
+            }//for end
+        }//for end
+
+        Collections.sort(list);
+
+        System.out.println(list.get(0));
+    }
 }
