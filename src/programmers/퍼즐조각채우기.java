@@ -21,7 +21,6 @@ public class 퍼즐조각채우기 {
     static boolean[][] isCheckedEmpty;
     static boolean[][] isCheckedPuzzle;
 
-
     static class Space {
         int count;
         int[][] matrix;
