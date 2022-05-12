@@ -36,8 +36,8 @@ public class Main1780 {
         boolean isAllSame = true;
         int criteria = board[startRow][startCol];
 
-        for (int i = startRow+1; i < startRow+size; i++) {
-            for (int j = startCol+1; j < startCol+size; j++) {
+        for (int i = startRow; i < startRow+size; i++) {
+            for (int j = startCol; j < startCol+size; j++) {
                 if (board[i][j]!=criteria) {
                     isAllSame = false;
                     break;
