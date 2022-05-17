@@ -62,4 +62,60 @@ public class Main1713 {
             }
         }
     }
+
+    //using 3 arrays
+    public static void main2(String[] args) throws IOException {
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+
+        int N = Integer.parseInt(bf.readLine());
+
+        int[] frame = new int[N];
+        int[] recommend = new int[N];
+        int[] time = new int[N];
+
+        int totalCnt = Integer.parseInt(bf.readLine());
+
+        StringTokenizer st = new StringTokenizer(bf.readLine(), " ");
+
+
+        int targetIdx = 0;
+
+        for (int t = 0; t < totalCnt; t++) {
+            int nowRecomm = Integer.parseInt(st.nextToken());
+
+            targetIdx = 0;
+
+            for (int i = 0; i < N; i++) {
+                if (frame[i]==0 || frame[i]==nowRecomm) {
+                    targetIdx = i;
+                    break;
+                }
+
+                if ((recommend[targetIdx]>recommend[i])
+                        || ((recommend[targetIdx]==recommend[i])&&(time[targetIdx]>time[i]))) {
+                    targetIdx = i;
+                }
+            }//for end
+
+            if (frame[targetIdx]!=nowRecomm) {
+                frame[targetIdx] = nowRecomm;
+                recommend[targetIdx] = 0;
+                time[targetIdx] = t;
+            }
+
+            recommend[targetIdx]++;
+        }//for end
+
+        Arrays.sort(frame);
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < N; i++) {
+            if (frame[i]!=0) {
+                sb.append(frame[i]).append(" ");
+            }
+        }//for end
+
+        System.out.println(sb);
+    }
 }
