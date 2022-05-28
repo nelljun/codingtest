@@ -10,6 +10,7 @@ public class Main2644 {
     static int[] parentArr;
     static StringBuilder sb = new StringBuilder();
 
+    //첫 번째 풀이
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 
