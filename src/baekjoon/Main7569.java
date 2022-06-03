@@ -21,9 +21,9 @@ public class Main7569 {
         }
     }
 
-    static int[] DIRECTIONS_VERTICAL = {1, -1, 0, 0, 0, 0};
-    static int[] DIRECTIONS_HORIZONTAL = {0, 0, 1, -1,0, 0};
-    static int[] DIRECTIONS_HEIGHT = {0, 0, 0, 0, 1, -1};
+    static final int[] DIRECTIONS_VERTICAL = {1, -1, 0, 0, 0, 0};
+    static final int[] DIRECTIONS_HORIZONTAL = {0, 0, 1, -1,0, 0};
+    static final int[] DIRECTIONS_HEIGHT = {0, 0, 0, 0, 1, -1};
 
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
