@@ -49,7 +49,7 @@ public class Main9081 {
 
                     for (int k = j+1; k < length; k++) {
                         Character c = charList.get(k);
-                        if (c>prev && greaterMin>c) {
+                        if (c > prev && greaterMin > c) {
                             greaterMin = c;
                             greaterMinIdx = k;
                         }//if end
