@@ -3,11 +3,12 @@ package src.baekjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 public class Main1052 {
-    static ArrayList<Integer> numList = new ArrayList<>();
+    static List<Integer> numList = new LinkedList<>();
 
     public static void main(String[] args) throws IOException {
         /**
@@ -26,13 +27,37 @@ public class Main1052 {
             System.out.println(K-N);
         } else {
             //K개 이하로 만들자
-            split(N);
-
+            String binaryString = Integer.toBinaryString(N);
+            int length = binaryString.length();
+            for (int i = 0; i < length; i++) {
+                char now = binaryString.charAt(i);
+                if (now=='1') {
+                    numList.add((int)Math.pow(2, length-1-i));
+                }
+            }//for end
             int size = numList.size();
+
             int diff = size-K;
 
-            if (diff<=0) {
-                System.out.println(0);
+            if (diff<0) {
+                while (true) {
+                    int nowSize = numList.size();
+                    int i = 0;
+                    for (; i < nowSize; i++) {
+                        if (numList.get(i) != numList.get(i+1)) {
+                            break;
+                        }
+                    }//for end
+                    if (diff+(i+1) < 0) {
+                        diff += (i+1);
+                    } else if (diff+(i+1) == 0){
+                        diff += (i+1);
+                        break;
+                    } else {
+                        break;
+                    }
+                }//while end
+                System.out.println(-diff);
             } else {
                 //개수를 줄여나가자
                 int cnt = 0;
@@ -56,19 +81,4 @@ public class Main1052 {
         }//if~else end
     }
 
-    public static void split(int N) {
-        if (N==0) {
-            return;
-        }
-
-        int num = 1;
-
-        while (num<=N) {
-            num *= 2;
-        }//while end
-
-        num /= 2;
-        numList.add(num);
-        split(N%num);
-    }
 }
