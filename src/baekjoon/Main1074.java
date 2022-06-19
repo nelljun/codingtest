@@ -26,7 +26,6 @@ public class Main1074 {
         dfs(0, 0, size-1, size-1, row, col, size);
 
         System.out.println(answer);
-
     }
 
     public static void dfs(int startRow, int startCol, int endRow, int endCol, int row, int col, int size) {
