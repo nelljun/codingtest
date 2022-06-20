@@ -5,9 +5,13 @@ public class NQueen {
 
     }
 
+    //행 check
     static int[] board;
+    //열 check
     static boolean[] colCheck;
+    //우상 대각선 check
     static boolean[] rightUpDiagonalCheck;
+    //좌상 대각선 check
     static boolean[] leftUpDiagonalCheck;
 
     static int answer;
@@ -29,6 +33,8 @@ public class NQueen {
             return;
         }
 
+        //row를 정하고, 점유되지 않은 col을 골랐을 때
+        //해당 point가 속하는 좌상, 우상 대각선이 포함되지 않은 경우 check
         for (int col = 0; col < n; col++) {
             if (!colCheck[col] && !rightUpDiagonalCheck[row+col] && !leftUpDiagonalCheck[(n-1)-(row-col)]) {
                 board[row] = col;
