@@ -11,6 +11,7 @@ public class 방금그곡 {
         System.out.println(solution2(m, musicinfos));
     }//main() end
 
+    //곡 길이, 곡명 담을 Song 클래스
     static class Song {
         int duration;
         String name;
@@ -94,6 +95,7 @@ public class 방금그곡 {
         return answer;
     }//solution2() end
 
+    //연주 시간 구하는 method
     public static int getDuration(String startTime, String endTime) {
 
         StringTokenizer stForDuration = new StringTokenizer(startTime, ":");
@@ -112,6 +114,7 @@ public class 방금그곡 {
 
     static StringBuilder sb = new StringBuilder();
 
+    //멜로디 연주 시간 동안 연주
     public static String playNewMelody(int duration, String newMelody) {
 
         sb.setLength(0);
@@ -129,6 +132,7 @@ public class 방금그곡 {
         return sb.toString();
     }//playNewMelody() end
 
+    //#이 붙은 음을 소문자로 (글자수 같게 하기 위해)
     public static String makeNewMelody(String melody) {
         return melody.replace("C#", "c")
                 .replace("D#", "d")
