@@ -17,7 +17,8 @@ public class 땅따먹기 {
 		dfs(0, 0, land);
 		System.out.println(pq.poll());
 	}//solution() end
-	
+
+	//dfs
 	public static void dfs(int row, int sum, int[][] land) {
 		if(row==land.length) {
 			pq.add(sum);
