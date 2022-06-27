@@ -24,9 +24,6 @@ public class 자물쇠와열쇠 {
 
         int boardSize = lockSize * 3;
 
-        int[][] lockInBoard = new int[boardSize][boardSize];
-        int[][] keyInBoard = new int[boardSize][boardSize];
-
         for (int x = lockSize-keySize; x < 2 * lockSize; x++) {
             for (int y = lockSize-keySize; y < 2 * lockSize; y++) {
                 for (int r = 0; r < 4; r++) {
@@ -34,12 +31,14 @@ public class 자물쇠와열쇠 {
                     for (int k = 0; k < lockSize; k++) {
                         for (int l = 0; l < lockSize; l++) {
                             if (lock[k][l]==1) {
-                                lockInBoard[k+lockSize][l+lockSize] = 1;
+                                board[k+lockSize][l+lockSize] = 1;
                             }
                         }//for end
                     }//for end
+
                     match(board, key, x, y, r);
                     if (check(board)) return true;
+
                 }//for end
             }//for end
         }//for end
@@ -53,14 +52,10 @@ public class 자물쇠와열쇠 {
         for (int i = 0; i < keySize; i++) {
             for (int j = 0; j < keySize; j++) {
                 switch (r) {
-                    case 0 : board[x+i][y+j] += key[i][j];
-                    break;
-                    case 1 : board[x+i][y+j] += key[j][keySize-1-i];
-                    break;
-                    case 2 : board[x+i][y+j] += key[keySize-1-i][keySize-1-j];
-                    break;
-                    case 3 : board[x+i][y+j] += key[keySize-1-j][i];
-                    break;
+                    case 0 -> board[x + i][y + j] += key[i][j];
+                    case 1 -> board[x + i][y + j] += key[j][keySize - 1 - i];
+                    case 2 -> board[x + i][y + j] += key[keySize - 1 - i][keySize - 1 - j];
+                    case 3 -> board[x + i][y + j] += key[keySize - 1 - j][i];
                 }
             }//for end
         }//for end
