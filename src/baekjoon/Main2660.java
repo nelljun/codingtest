@@ -40,6 +40,7 @@ public class Main2660 {
         for (int i = 0; i < memberCnt; i++) {
             //(i+1)번 회원으로부터의 거리를 저장하기 위한 거리 배열
             int[] distFromPerson = new int[memberCnt];
+            //회원 한 명을 기준으로 모든 회원까지의 도달 거리 bfs 탐색으로 구한다.
             bfs(i, distFromPerson);
             //(i+1)번으로부터 최고 멀리 떨어진 회원까지의 거리 + 1
             int maxDist = Arrays.stream(distFromPerson)
