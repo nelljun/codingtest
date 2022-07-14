@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.StringTokenizer;
 
 public class Main13164 {
@@ -30,7 +29,14 @@ public class Main13164 {
             diffArr[i] = (students[i+1] - students[i]);
         }//for end
 
+        Arrays.sort(diffArr);
 
+        int min = students[N-1] - students[0];
 
+        for (int i = 0; i < K-1; i++) {
+            min -= diffArr[N-2-i];
+        }//for end
+
+        System.out.println(min);
     }
 }
