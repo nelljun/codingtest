@@ -25,14 +25,14 @@ public class Main14891 {
             gearList.add(gear);
         }//for end
 
-
-
         int rotationCnt = Integer.parseInt(bf.readLine());
 
         StringTokenizer st;
         for (int i = 0; i < rotationCnt; i++) {
-            st = new StringTokenizer(bf.readLine(), " ");
+            st = new StringTokenizer(bf.readLine());
+            //gear index
             int gearIdx = Integer.parseInt(st.nextToken())-1;
+            //gear 회전 방향
             int rotation = Integer.parseInt(st.nextToken());
 
             //각 톱니바퀴들끼리 같은 극인지 확인
@@ -43,14 +43,22 @@ public class Main14891 {
 
             //왼쪽으로 이동
             int gearIdxLeft = gearIdx-1;
+            //회전 방향 반대로
             int rotationLeft = -rotation;
 
+            //첫 번째 톱니바퀴까지
             while (gearIdxLeft>=0) {
+                //다른 극일 때
                 if (!isSame[gearIdxLeft]) {
+                    //회전
                     rotate(gearIdxLeft, rotationLeft);
+                    //왼쪽으로 하나 이동
                     gearIdxLeft--;
+                    //회전 방향 반대로
                     rotationLeft = -rotationLeft;
                 } else {
+                    //이동한 현재 톱니바퀴가 회전하지 않으면
+                    //그 다음 톱니바퀴부터도 회전하지 않으므로 break
                     break;
                 }
             }//while end
