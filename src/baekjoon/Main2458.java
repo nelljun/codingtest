@@ -6,22 +6,10 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class Main2458 {
+    //학생들 간의 관계 저장할 2차원 배열
     static int[][] graph;
     static int N;
-    static ArrayList<Student> studentList = new ArrayList<>();
     static boolean[] isVisited;
-    private static class Student {
-        int lowerCnt;
-        int higherCnt;
-
-        public Student() {
-        }
-
-        public Student(int lowerCnt, int higherCnt) {
-            this.lowerCnt = lowerCnt;
-            this.higherCnt = higherCnt;
-        }
-    }
 
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
@@ -34,10 +22,6 @@ public class Main2458 {
         graph = new int[N][N];
         isVisited = new boolean[N];
 
-        for (int i = 0; i < N; i++) {
-            studentList.add(new Student());
-        }//for end
-
         for (int i = 0; i < M; i++) {
             st = new StringTokenizer(bf.readLine());
             int low = Integer.parseInt(st.nextToken())-1;
@@ -49,12 +33,13 @@ public class Main2458 {
         int answer = 0;
 
         for (int i = 0; i < N; i++) {
-            Student student = studentList.get(i);
-            student.higherCnt = greaterBfs(i);
-            student.lowerCnt = lessBfs(i);
+            //(i+1)번 학생을 기준으로 큰 키의 학생 수
+            int greaterCnt = greaterBfs(i);
+            //(i+1)번 학생을 기준으로 작은 키의 학생 수
+            int lessCnt = lessBfs(i);
 
-
-            if ((student.higherCnt + student.lowerCnt) == N-1) {
+            //기준 학생보다 크거나 작은 학생 수의 합이 N-1이면 키 순위 정해짐
+            if ((greaterCnt + lessCnt) == N-1) {
                 answer++;
             }
         }//for end
@@ -62,24 +47,27 @@ public class Main2458 {
         System.out.println(answer);
     }
 
+    /**
+     * greaterBfs() : 기준 학생보다 큰 키의 학생들을 bfs로 탐색
+     * @param studentNum : 기준이 될 학생 번호
+     * @return : 기준 학생보다 큰 키의 학생 수
+     */
     public static int greaterBfs(int studentNum) {
+        //방문 여부 배열 초기화
         Arrays.fill(isVisited, false);
 
         Queue<Integer> queue = new LinkedList<>();
 
         queue.add(studentNum);
         isVisited[studentNum] = true;
+        //조건에 해당하는 학생 수
         int cnt = 0;
 
         while (!queue.isEmpty()) {
             int nowStudentNum = queue.poll();
 
-            Student nowStudent = studentList.get(nowStudentNum);
-            if (nowStudent.higherCnt != 0) {
-                return cnt + nowStudent.higherCnt;
-            }
-
             for (int i = 0; i < N; i++) {
+                //graph[작은 학생 번호][큰 학생 번호] 이므로 뒤 index를 바꿔가며 탐색
                 if (graph[nowStudentNum][i] == 1 && !isVisited[i]) {
                     queue.add(i);
                     isVisited[i] = true;
@@ -91,6 +79,11 @@ public class Main2458 {
         return cnt;
     }
 
+    /**
+     * lessBfs() : 기준 학생보다 작은 키의 학생들을 bfs로 탐색
+     * @param studentNum : 기준이 될 학생 번호
+     * @return : 기준 학생보다 작은 키의 학생 수
+     */
     public static int lessBfs(int studentNum) {
         Arrays.fill(isVisited, false);
 
@@ -103,12 +96,8 @@ public class Main2458 {
         while (!queue.isEmpty()) {
             int nowStudentNum = queue.poll();
 
-            Student nowStudent = studentList.get(nowStudentNum);
-            if (nowStudent.lowerCnt != 0) {
-                return cnt + nowStudent.lowerCnt;
-            }
-
             for (int i = 0; i < N; i++) {
+                //greaterBfs와는 반대로 작은 키 학생을 찾아야 하므로 앞 index를 바꿔가며 거꾸로 탐색
                 if (graph[i][nowStudentNum] == 1 && !isVisited[i]) {
                     queue.add(i);
                     isVisited[i] = true;
