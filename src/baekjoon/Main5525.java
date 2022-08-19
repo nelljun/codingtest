@@ -16,7 +16,8 @@ public class Main5525 {
         String target = makeTarget(N);
 
         int answer = 0;
-
+        
+        //절반 풀이
         for (int i = 0; i < M-(2*N+1); i++) {
             if (S.charAt(i) == 'I') {
                 if (target.equals(S.substring(i, i+(2*N+1)))) {
@@ -24,6 +25,8 @@ public class Main5525 {
                 }//if end
             }//if end
         }//for end
+        
+        //다른 풀이
 
         System.out.println(answer);
     }
